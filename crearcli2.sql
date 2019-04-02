@@ -1,6 +1,6 @@
 create table	tcliente2(
 	dni		char(10)	not null,
-	nombre		varchar2(25)	not null,
+	nombre	varchar2(25)	not null,
 	provincia	char(2)	not null,
 	tipo		char(2),
 	fecha_alta	date,
@@ -8,7 +8,8 @@ create table	tcliente2(
 	compras		number(9,2),
 	CONSTRAINT CP_TCLIENTE2 PRIMARY KEY (DNI),
 	CONSTRAINT CA_TCLIENTE2_TPROVINCIA2 FOREIGN KEY (PROVINCIA) REFERENCES TPROVINCIA2 (CODIGO),
-	CONSTRAINT CA_TCLIENTE2_TVENDEDOR2 FOREIGN KEY (VENDEDOR) REFERENCES TVENDEDOR2 (COD_VEN))
+	CONSTRAINT CA_TCLIENTE2_TVENDEDOR2 FOREIGN KEY (VENDEDOR) REFERENCES TVENDEDOR2 (COD_VEN),
+	CONSTRAINT CS_TCLIENTE2 UNIQUE (nombre))
 /
 
 Insert into tcliente2 values ('10101010','VALLE MAS ANGEL','HU','AA',TO_DATE('12/04/1996','DD/MM/YYYY'),'001',0100000);
